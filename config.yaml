@@ -1,0 +1,14 @@
+course:
+  name: "Introduction à la programmation et à l'algorithmique"
+  RNCP:
+    - RNCP37674
+  RNCPBloc:
+    - RNCP37674BC01
+  timing: 2
+
+credits:
+  authors:
+    - name: Jean-François Vial
+      github:
+        - JeffDiginamic
+        - j33f

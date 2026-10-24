@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Playground — Introduction à la programmation et à l'algorithmique</title>
+  <script>
+    // Le thème choisi est appliqué avant l'affichage, pour éviter un éclair clair.
+    try {
+      const theme = localStorage.getItem('playground-intro-algo:theme');
+      if (theme === 'clair') document.documentElement.dataset.theme = 'light';
+      if (theme === 'sombre') document.documentElement.dataset.theme = 'dark';
+    } catch (e) {
+      // Mémoire indisponible : thème automatique.
+    }
+  </script>
+  <link rel="stylesheet" href="codemirror/lib/codemirror.css">
+  <link rel="stylesheet" href="codemirror/theme/material-darker.css">
+  <link rel="stylesheet" href="playground.css">
+  <link rel="stylesheet" href="schema.css">
+</head>
+<body>
+  <header class="barre">
+    <h1>Playground <span>Intro à la programmation et à l'algorithmique</span></h1>
+    <label class="choix">
+      <span class="sr">Exercice</span>
+      <select id="choix-exercice"></select>
+    </label>
+    <span id="progression" class="progression"></span>
+    <button id="btn-journal" title="Mon journal : à télécharger chaque soir et à déposer sur Moodle">📓 Journal</button>
+    <div class="actions">
+      <button id="btn-executer" class="primaire" title="Exécuter le code (Ctrl+Entrée)">▶ Exécuter</button>
+      <button id="btn-tester" title="Lancer les tests de l'exercice">✓ Tester</button>
+      <button id="btn-reinitialiser" title="Revenir au code de départ">↺</button>
+      <button id="btn-theme" title="Thème">🌓</button>
+      <button id="btn-aide" title="Aide">?</button>
+    </div>
+  </header>
+
+  <main class="espace">
+    <section class="gauche">
+      <article class="enonce">
+        <button id="btn-enonce" class="replier" aria-expanded="true" title="Afficher ou masquer l'énoncé">Énoncé</button>
+        <div id="enonce-contenu"></div>
+      </article>
+      <div class="onglets-code">
+        <button data-doc="js" class="actif">JavaScript</button>
+        <button data-doc="html">HTML</button>
+      </div>
+      <div class="editeur"><textarea id="code"></textarea></div>
+    </section>
+
+    <section class="droite">
+      <div class="entrees">
+        <label for="entrees">Entrées <small>lues par <code>lire("nom")</code>, une par ligne : <code>nom = valeur</code></small></label>
+        <textarea id="entrees" spellcheck="false"></textarea>
+      </div>
+      <nav class="onglets" role="tablist">
+        <button data-panneau="console" class="actif" role="tab">Console</button>
+        <button data-panneau="page" class="onglet-page" role="tab">Page</button>
+        <button data-panneau="tests" role="tab">Tests</button>
+      </nav>
+      <div id="panneau-console" class="panneau console actif" aria-live="polite"></div>
+      <div id="panneau-page" class="panneau page"><iframe id="page-iframe" title="Page de l'exercice" sandbox="allow-scripts allow-modals"></iframe></div>
+      <div id="panneau-tests" class="panneau tests" aria-live="polite"></div>
+      <div id="panneau-reponse" class="panneau-reponse">
+        <div id="note-reponse" class="note-reponse" aria-live="polite"></div>
+        <div id="schema-conteneur" class="schema-conteneur"></div>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="aide">
+    <h2>Aide</h2>
+    <h3>Le principe</h3>
+    <ol>
+      <li>Choisissez un exercice dans la liste, en haut.</li>
+      <li>Lisez l'énoncé, écrivez votre code.</li>
+      <li><strong>▶ Exécuter</strong> (Ctrl+Entrée) lance votre code : ce qu'il affiche apparaît dans la console.</li>
+      <li><strong>✓ Tester</strong> lance les tests de l'exercice : chaque ❌ explique ce qui ne va pas.</li>
+      <li>Coincé ? Les indices 💡 sous l'énoncé, puis un coup de pouce sur le Discord ou auprès de Nami. La correction, dans le support de cours, en dernier recours.</li>
+    </ol>
+    <h3>Lire et écrire</h3>
+    <ul>
+      <li><code>console.log(valeur)</code> affiche une valeur dans la console : c'est l'<strong>ÉCRIRE</strong> du pseudo-code.</li>
+      <li><code>lire("nom")</code> lit la valeur appelée <code>nom</code> dans le panneau <strong>Entrées</strong> : c'est le <strong>LIRE</strong> du pseudo-code. Cette fonction n'existe que dans le playground.</li>
+      <li>Dans le panneau <strong>Entrées</strong>, une ligne par entrée : <code>age = 17</code>. Les nombres à virgule s'écrivent avec un point : <code>12.5</code>. Un texte qui ressemble à un nombre s'écrit entre guillemets : <code>code = "75001"</code>.</li>
+      <li>Plusieurs valeurs séparées par des virgules, <code>notes = 12, 15, 9</code>, se lisent l'une après l'autre : le premier <code>lire("notes")</code> donne 12, le suivant 15, puis 9.</li>
+    </ul>
+    <h3>Bon à savoir</h3>
+    <ul>
+      <li>Votre code est <strong>sauvegardé automatiquement</strong> dans ce navigateur, exercice par exercice. Changer de navigateur ou vider ses données efface la sauvegarde.</li>
+      <li><strong>↺</strong> remet le code de départ de l'exercice.</li>
+      <li>Le code tourne en <strong>mode strict</strong> : toute variable doit être déclarée avec <code>let</code> ou <code>const</code>.</li>
+      <li>Un programme qui ne s'arrête pas (boucle infinie) est interrompu au bout de 3 secondes. En mode page, si l'onglet se fige, fermez-le et rouvrez le playground : votre code est sauvegardé.</li>
+      <li>Ctrl+/ commente ou décommente les lignes sélectionnées.</li>
+      <li>🌓 change le thème : automatique (celui de votre système), sombre ou clair.</li>
+      <li><strong>📓 Journal</strong> : chaque soir, téléchargez votre journal et déposez-le sur Moodle. Vous y cochez aussi votre auto-évaluation « Je sais… ».</li>
+    </ul>
+    <p><button id="btn-fermer-aide" class="primaire">Fermer</button></p>
+  </dialog>
+
+  <dialog id="journal" class="journal">
+    <h2>📓 Mon journal</h2>
+    <p>Chaque soir, téléchargez votre journal et déposez-le sur Moodle. Il contient tout votre travail depuis le début : vos essais, vos résultats aux tests, vos indices, vos réponses, votre auto-évaluation, avec leurs dates. Une signature permet de vérifier qu'il n'a pas été modifié après coup.</p>
+    <p><label for="journal-nom"><strong>Votre prénom et votre nom</strong></label><br>
+      <input id="journal-nom" autocomplete="name" placeholder="Prénom Nom"></p>
+    <h3>Où vous en êtes</h3>
+    <table class="journal-bilan">
+      <thead><tr><th>Chapitre</th><th>Terminés</th><th>Commencés</th></tr></thead>
+      <tbody id="journal-bilan"></tbody>
+    </table>
+    <h3>Auto-évaluation : « Je sais… »</h3>
+    <p class="petit">Les listes qui terminent chaque chapitre. Cochez ce que vous savez faire, honnêtement : c'est pour vous, et pour savoir quoi revoir.</p>
+    <div id="journal-auto" class="journal-auto"></div>
+    <p class="journal-actions">
+      <button id="btn-telecharger" class="primaire">⬇ Télécharger mon journal</button>
+      <button id="btn-fermer-journal">Fermer</button>
+    </p>
+    <p id="journal-message" class="journal-message" aria-live="polite"></p>
+  </dialog>
+
+  <script src="codemirror/lib/codemirror.js"></script>
+  <script src="codemirror/mode/javascript/javascript.js"></script>
+  <script src="codemirror/mode/xml/xml.js"></script>
+  <script src="codemirror/mode/css/css.js"></script>
+  <script src="codemirror/mode/htmlmixed/htmlmixed.js"></script>
+  <script src="codemirror/addon/edit/matchbrackets.js"></script>
+  <script src="codemirror/addon/edit/closebrackets.js"></script>
+  <script src="codemirror/addon/edit/closetag.js"></script>
+  <script src="codemirror/addon/selection/active-line.js"></script>
+  <script src="codemirror/addon/comment/comment.js"></script>
+  <script src="moteur.js"></script>
+  <script src="schema.js"></script>
+  <script src="signature.js"></script>
+  <!-- Un fichier par chapitre. Pour en ajouter un : une ligne ici. -->
+  <script src="../exercices/01-mise-en-route.js"></script>
+  <script src="../exercices/02-qu-est-ce-qu-un-algorithme.js"></script>
+  <script src="../exercices/03-la-sequence.js"></script>
+  <script src="../exercices/04-les-conditions.js"></script>
+  <script src="../exercices/05-les-boucles.js"></script>
+  <script src="../exercices/06-les-fonctions.js"></script>
+  <script src="../exercices/07-algorithmes-sur-les-tableaux.js"></script>
+  <script src="../exercices/08-trier-et-chercher.js"></script>
+  <script src="../exercices/09-recursivite-et-complexite.js"></script>
+  <script src="../exercices/10-mini-projet.js"></script>
+  <script src="playground.js"></script>
+</body>
+</html>

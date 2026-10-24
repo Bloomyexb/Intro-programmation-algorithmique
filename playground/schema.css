@@ -1,0 +1,110 @@
+/* Schémas : l'éditeur du playground et l'affichage en lecture seule (repris
+   par la visionneuse des journaux). Les couleurs suivent le thème. */
+
+:root {
+  --schema-trait: #1d2129;
+  --schema-texte: #1d2129;
+  --schema-fond-zone: #fbfbfd;
+  --schema-grille: #e6e8ee;
+  --schema-debut: #e2f4e8;
+  --schema-es: #e2ecfb;
+  --schema-action: #ffffff;
+  --schema-decision: #fff3d1;
+  --schema-appel: #eee5fb;
+  --schema-selection: #4f5fd6;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --schema-trait: #d9d9e0;
+    --schema-texte: #e4e4e8;
+    --schema-fond-zone: #17161b;
+    --schema-grille: #24222a;
+    --schema-debut: #1d3a29;
+    --schema-es: #1c2b45;
+    --schema-action: #26242c;
+    --schema-decision: #3b321c;
+    --schema-appel: #2e2540;
+    --schema-selection: #8393f0;
+  }
+}
+
+:root[data-theme="dark"] {
+  --schema-trait: #d9d9e0;
+  --schema-texte: #e4e4e8;
+  --schema-fond-zone: #17161b;
+  --schema-grille: #24222a;
+  --schema-debut: #1d3a29;
+  --schema-es: #1c2b45;
+  --schema-action: #26242c;
+  --schema-decision: #3b321c;
+  --schema-appel: #2e2540;
+  --schema-selection: #8393f0;
+}
+
+.schema-svg { display: block; font: 15px system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+.schema-svg.schema-lecture { max-width: 100%; height: auto; }
+
+.schema-forme > * { stroke: var(--schema-trait); stroke-width: 1.8; stroke-linejoin: round; fill: var(--schema-action); }
+.schema-debut > * { fill: var(--schema-debut); }
+.schema-es > * { fill: var(--schema-es); }
+.schema-decision > * { fill: var(--schema-decision); }
+.schema-appel > * { fill: var(--schema-appel); }
+.schema-forme > .schema-cadre-texte { fill: transparent; stroke: transparent; }
+.schema-texte { fill: var(--schema-texte); stroke: none; user-select: none; }
+.schema-etiquette { font-size: 13px; font-style: italic; }
+.schema-vide { fill: var(--schema-trait); opacity: 0.6; font-style: italic; }
+
+.schema-trait { fill: none; stroke: var(--schema-trait); stroke-width: 1.8; }
+.schema-zone-clic { fill: none; stroke: transparent; stroke-width: 14; }
+.schema-pointe { fill: var(--schema-trait); }
+.schema-fond-etiquette { fill: var(--schema-fond-zone); }
+.schema-provisoire { stroke-dasharray: 6 4; }
+
+.schema-selection .schema-forme > *,
+.schema-selection .schema-trait { stroke: var(--schema-selection); stroke-width: 2.6; }
+.schema-selection .schema-forme > .schema-cadre-texte { stroke: var(--schema-selection); stroke-dasharray: 4 3; }
+.schema-selection .schema-pointe { fill: var(--schema-selection); }
+.schema-poignee { fill: var(--schema-selection); stroke: var(--schema-fond-zone); stroke-width: 2; cursor: move; }
+
+/* --- L'éditeur --- */
+
+.schema-editeur { display: flex; flex-direction: column; min-height: 0; gap: 0.35rem; }
+.schema-barre { display: flex; flex-wrap: wrap; gap: 0.25rem; align-items: center; }
+.schema-barre button { display: inline-flex; align-items: center; gap: 0.2rem; padding: 0.2em 0.5em; min-height: 2rem; }
+.schema-barre button.actif { border-color: var(--schema-selection); box-shadow: inset 0 0 0 1px var(--schema-selection); }
+.schema-icone .schema-forme > * { stroke-width: 2.5; }
+.schema-icone-texte { font-size: 26px; font-weight: 600; }
+.schema-separateur { flex: 0 0 0.6rem; }
+.schema-aide { margin: 0; font-size: 0.8rem; opacity: 0.75; }
+.schema-zone {
+  position: relative;
+  flex: 1;
+  min-height: 14rem;
+  overflow: auto;
+  border: 1px solid var(--schema-grille);
+  border-radius: 6px;
+  background-color: var(--schema-fond-zone);
+  background-image: radial-gradient(var(--schema-grille) 1px, transparent 1px);
+  background-size: 20px 20px;
+  outline: none;
+}
+.schema-zone:focus-visible { box-shadow: 0 0 0 2px var(--schema-selection); }
+.schema-plan { position: relative; }
+.schema-outil-forme .schema-svg { cursor: crosshair; }
+.schema-outil-fleche .schema-svg { cursor: alias; }
+.schema-noeud { cursor: grab; }
+.schema-lien { cursor: pointer; }
+.schema-saisie {
+  position: absolute;
+  z-index: 2;
+  box-sizing: border-box;
+  font: 15px system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  text-align: center;
+  padding: 0.3rem;
+  border: 2px solid var(--schema-selection);
+  border-radius: 4px;
+  background: var(--schema-fond-zone);
+  color: var(--schema-texte);
+  resize: none;
+}
