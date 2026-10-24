@@ -1,7 +1,14 @@
 // Chapitre 09 — Récursivité et complexité. Énoncés détaillés et corrigés :
 // 09-Recursivite-et-complexite.md
 
-chapitre(9, 'Récursivité et complexité');
+chapitre(9, 'Récursivité et complexité', [
+  "expliquer ce qu'est une fonction récursive, avec l'image de la file d'attente",
+  "identifier le cas de base et l'appel récursif d'une fonction",
+  "écrire une fonction récursive simple",
+  "expliquer ce qu'est la pile d'appels, et d'où vient l'erreur `Maximum call stack size exceeded`",
+  "dire si un algorithme est en O(1), O(log n), O(n) ou O(n²), en regardant ses boucles",
+  "repérer une boucle cachée dans une méthode toute faite",
+]);
 
 exercice({
   id: '9.1',
@@ -53,6 +60,17 @@ exercice({
     'Le cas de base : si n === 0, retournez 1.',
     'Seul n diminue d\'un appel à l\'autre : return x * puissance(x, n - 1);',
   ],
+});
+
+exercice({
+  id: '9.3',
+  titre: 'Quelle complexité ?',
+  niveau: 2,
+  mode: 'reponse',
+  parties: ['texte'],
+  enonce: '<p>Donnez la complexité, O(1), O(log n), O(n) ou O(n²), de chacune des fonctions de l\'exercice 9.3 du support, et justifiez en une phrase : <code>estPair</code>, <code>somme</code>, <code>estTrie</code>, <code>rechercheDichotomique</code>, <code>triBulles</code> et <code>aUnDoublon</code>.</p>',
+  depart: '1. estPair : O(…) car \n2. somme : O(…) car \n3. estTrie : O(…) car \n4. rechercheDichotomique : O(…) car \n5. triBulles : O(…) car \n6. aUnDoublon : O(…) car \n',
+  tests: [],
 });
 
 exercice({

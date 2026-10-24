@@ -237,7 +237,7 @@ Le plus délicat est l'assemblage du texte : chaque morceau fixe est entre guill
 
 ### Exercice 3.3 ⭐⭐ — Exécuter à la main
 
-Sur papier, remplissez le tableau de suivi de ce programme, pour `a = 5` et `b = 3` :
+Dans le playground (exercice 3.3, sans test automatique), remplissez le tableau de suivi de ce programme, pour `a = 5` et `b = 3` :
 
 ```text
 LIRE a

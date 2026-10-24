@@ -69,7 +69,13 @@ const resume = (resultats) => resultats.filter((r) => !r.ok).map((r) =>
 
 let echecs = 0;
 const pages = [];
+const reponses = [];
 for (const ex of EXERCICES) {
+  // Les exercices sans test (réponse rédigée, schéma) n'ont pas de corrigé à exécuter.
+  if (ex.mode === 'reponse') {
+    reponses.push(ex.id);
+    continue;
+  }
   const corrige = corriges.get(ex.id);
   if (!corrige) {
     console.log(`⚠️  ${ex.id} ${ex.titre} : aucun corrigé trouvé dans les chapitres`);
@@ -95,6 +101,21 @@ for (const id of corriges.keys()) {
     echecs++;
   }
 }
+// Les listes « Je sais » de l'auto-évaluation du playground doivent être
+// celles qui terminent les chapitres.
+for (const f of chapitres) {
+  const numero = parseInt(f, 10);
+  const texte = fs.readFileSync(path.join(racine, f), 'utf8');
+  const m = /## (?:✅ Je sais…|\d+\. Grille d'auto-évaluation)\n([\s\S]*?)(?:\n---|\n## |$)/.exec(texte);
+  const support = m ? m[1].split('\n').filter((l) => l.startsWith('- [ ] ')).map((l) => l.slice(6).replace(/[ ;.]+$/, '')) : [];
+  const playground = (globalThis.JE_SAIS || {})[numero] || [];
+  if (JSON.stringify(support) !== JSON.stringify(playground)) {
+    console.log(`⚠️  ${f} : la liste « Je sais » du chapitre diffère de celle de exercices/ (auto-évaluation du playground)`);
+    echecs++;
+  }
+}
+
 if (pages.length) console.log(`\nMode page, à vérifier dans le playground : ${pages.join(', ')}`);
+if (reponses.length) console.log(`Sans test automatique (réponse rédigée ou schéma) : ${reponses.join(', ')}`);
 console.log(`\n${EXERCICES.length} exercices, ${corriges.size} corrigés, ${echecs} problème(s).`);
 process.exit(echecs ? 1 : 0);

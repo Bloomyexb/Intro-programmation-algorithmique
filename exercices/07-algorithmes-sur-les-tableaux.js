@@ -1,7 +1,14 @@
 // Chapitre 07 — Algorithmes sur les tableaux. Énoncés détaillés et corrigés :
 // 07-Algorithmes-sur-les-tableaux.md
 
-chapitre(7, 'Algorithmes sur les tableaux');
+chapitre(7, 'Algorithmes sur les tableaux', [
+  "parcourir un tableau avec un `for` à indices, ou un `for … of`",
+  "écrire les cinq patrons : accumulateur, meilleur jusqu'ici, compteur, drapeau, construction",
+  "reconnaître le patron dont un problème a besoin",
+  "placer le `return false` d'un drapeau après la boucle",
+  "gérer le tableau vide",
+  "construire un nouveau tableau sans modifier celui que j'ai reçu",
+]);
 
 exercice({
   id: '7.1',

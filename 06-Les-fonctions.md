@@ -506,6 +506,10 @@ Le champ vide se teste sur le **texte saisi**, pas sur le nombre : `Number("")` 
 
 ---
 
+> 🌙 **Fin du jour 1.** Avant de partir : **📓 Journal** dans le playground, cochez votre auto-évaluation, téléchargez votre journal et déposez-le sur Moodle, dans le devoir du jour 1.
+
+---
+
 ## ✅ Je sais…
 
 - [ ] expliquer à quoi sert une fonction, avec mes mots ;

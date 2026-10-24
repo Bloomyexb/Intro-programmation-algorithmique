@@ -313,7 +313,7 @@ Pour aller plus loin : `x¹⁰ = (x⁵)²`. En divisant `n` par deux quand il es
 
 ### Exercice 9.3 ⭐⭐ — Quelle complexité ?
 
-Sur papier. Donnez la complexité de chacune de ces fonctions, écrites dans les chapitres précédents ou ci-dessous, pour un tableau de taille `n` :
+Dans le playground (exercice 9.3, sans test automatique), donnez la complexité de chacune de ces fonctions, écrites dans les chapitres précédents ou ci-dessous, pour un tableau de taille `n` :
 
 1. `estPair(n)`, exercice 6.1 ;
 2. `somme(tableau)`, exercice 7.1 ;

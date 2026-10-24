@@ -31,9 +31,9 @@ Chaque étape a son exercice dans le playground, avec ses tests. Comme dans un v
 
 ---
 
-## 2. Étape 0 : analyser, sur papier
+## 2. Étape 0 : analyser, avant de coder
 
-Avant la moindre ligne de code, un quart d'heure de réflexion. Répondez sur papier :
+Avant la moindre ligne de code, un quart d'heure de réflexion. Répondez dans le playground, exercice 10.0 : la zone de texte pour les réponses et le pseudo-code, l'éditeur de schémas pour le diagramme.
 
 1. Quelles sont les **entrées** du jeu ? Ses **sorties** ?
 2. Quelles informations le jeu doit-il **retenir** d'une proposition à l'autre ?
@@ -437,8 +437,12 @@ Si vous avez fini, de quoi continuer à votre rythme, dans le bac à sable page 
 - **finir proprement** : désactiver le bouton après la victoire (`bouton.disabled = true`) et le réactiver à la nouvelle partie ;
 - **des niveaux** : de 1 à 10, de 1 à 100, de 1 à 1 000, avec un nombre d'essais limité, calculé grâce à la dichotomie ;
 - **retenir le record** d'une visite à l'autre : `localStorage.setItem("record", record)` l'enregistre dans le navigateur, `localStorage.getItem("record")` le relit, sous forme de texte ;
-- **publier votre jeu** : recopiez-le dans votre fork, dans un dossier `mon-travail/nombre-mystere/`, avec un `index.html` et un `script.js` reliés par `<script src="script.js" defer></script>`. Commitez, poussez, puis activez **GitHub Pages** dans les réglages de votre fork (*Settings* → *Pages*, source *Deploy from a branch*, branche `main`). Quelques minutes plus tard, votre jeu est en ligne à l'adresse `https://<votre-compte>.github.io/Intro-Programmation-Algorithmique/mon-travail/nombre-mystere/` ;
+- **publier votre jeu** : recopiez-le dans votre fork, dans un dossier `mon-travail/nombre-mystere/`, avec un `index.html` et un `script.js` reliés par `<script src="script.js" defer></script>`. Commitez, poussez, puis activez **GitHub Pages** dans les réglages de votre fork (*Settings* → *Pages*, source *Deploy from a branch*, branche `main`). Quelques minutes plus tard, votre jeu est en ligne à l'adresse `https://<votre-compte>.github.io/Intro-programmation-algorithmique/mon-travail/nombre-mystere/` ;
 - **un autre jeu** : le pendu, avec un tableau de mots, un mot tiré au hasard, et l'affichage des lettres trouvées.
+
+---
+
+> 🌙 **Fin du jour 2.** Avant de partir : **📓 Journal** dans le playground, cochez votre auto-évaluation, téléchargez votre journal et déposez-le sur Moodle, dans le devoir du jour 2.
 
 ---
 

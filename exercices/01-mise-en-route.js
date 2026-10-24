@@ -11,7 +11,17 @@
 //   - mode 'page' : html (page de départ), tests { nom, hasard, etapes } ;
 //   - interdit [{ texte, message }] et recursif ['nom'] : règles sur le code.
 
-chapitre(1, 'Mise en route');
+chapitre(1, 'Mise en route', [
+  "forker le dépôt du cours, cloner mon fork, et le mettre à jour avec *Sync fork*",
+  "demander de l'aide sur le Discord ou à Nami, en donnant le contexte, et sans réclamer la solution",
+  "ouvrir le playground et choisir un exercice",
+  "afficher un texte ou un calcul avec `console.log()`",
+  "lire une valeur du panneau Entrées avec `lire()`, et la changer pour essayer mon programme",
+  "lancer les tests et lire un ❌",
+  "trouver la ligne d'une erreur et lire son explication",
+  "me servir des indices avant d'ouvrir une correction",
+  "télécharger mon journal chaque soir et le déposer sur Moodle",
+]);
 
 exercice({
   id: '1.1',

@@ -12,7 +12,7 @@
 4. Lire et écrire un pseudo-code simple.
 5. Passer d'une écriture à l'autre : diagramme, pseudo-code, JavaScript.
 
-> ⏱ **Durée indicative** : 45 min · **Exercices** : 2.1 à 2.3 obligatoires, 2.4 en approfondissement. Ils se font **sur papier**.
+> ⏱ **Durée indicative** : 45 min · **Exercices** : 2.1 à 2.3 obligatoires, 2.4 en approfondissement. Ils se font dans le playground, sans test automatique : on y rédige sa réponse et on y dessine ses diagrammes.
 
 ---
 
@@ -187,7 +187,7 @@ flowchart LR
 
 ## 6. Exercices
 
-Ces exercices se font **sur papier** : il n'y a rien à exécuter, mais tout à réfléchir. Pour les diagrammes, un crayon suffit ; si vous voulez les dessiner à l'écran, [mermaid.live](https://mermaid.live) ou [draw.io](https://app.diagrams.net) font l'affaire.
+Ces exercices n'ont rien à exécuter, mais tout à réfléchir. Faites-les dans le playground (exercices 2.1 à 2.4) : la réponse se rédige dans la zone de texte, et les diagrammes se dessinent dans l'**éditeur de schémas**. Cliquez ensuite sur **✓ J'ai terminé**, puis comparez avec la correction : votre réponse figure dans votre journal.
 
 ### Exercice 2.1 ⭐ — Remettre dans l'ordre
 

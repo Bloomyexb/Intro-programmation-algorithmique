@@ -13,6 +13,7 @@
 5. Afficher un résultat avec `console.log()` et lire une valeur avec `lire()`.
 6. Lancer les tests d'un exercice et comprendre ce qu'ils vous disent.
 7. Lire un message d'erreur et corriger votre code.
+8. Télécharger votre journal chaque soir, et le déposer sur Moodle.
 
 > ⏱ **Durée indicative** : 40 min · **Exercices** : 1.1 à 1.3, tous obligatoires.
 
@@ -34,11 +35,11 @@ flowchart LR
 2. Clonez **votre fork**, et non le dépôt d'origine :
 
    ```bash
-   git clone https://github.com/<votre-compte>/Intro-Programmation-Algorithmique.git
-   cd Intro-Programmation-Algorithmique
+   git clone https://github.com/<votre-compte>/Intro-programmation-algorithmique.git
+   cd Intro-programmation-algorithmique
    ```
 
-   Avec la GitHub CLI, une seule commande fait les deux : `gh repo fork DiginamicAcademy/Intro-Programmation-Algorithmique --clone`.
+   Avec la GitHub CLI, une seule commande fait les deux : `gh repo fork DiginamicAcademy/Intro-programmation-algorithmique --clone`.
 
 3. **Pour récupérer les mises à jour** du cours, s'il est corrigé pendant votre formation : bouton **Sync fork** sur la page de votre fork, puis `git pull` dans votre dossier.
 
@@ -138,6 +139,7 @@ Le **playground** est une page web, livrée avec le cours, où vous écrivez et 
 | **▶ Exécuter** (Ctrl+Entrée) | lancer votre code ; ce qu'il affiche apparaît dans la **console** |
 | **✓ Tester** | lancer les tests de l'exercice ; le résultat s'affiche dans l'onglet **Tests** |
 | **↺** | revenir au code de départ de l'exercice |
+| **📓 Journal** | votre auto-évaluation, et le journal à télécharger chaque soir (voir ci-dessous) |
 | **🌓** | le thème : automatique (celui de votre système), clair ou sombre |
 | **?** | l'aide du playground |
 | **Énoncé**, à gauche | la consigne, des exemples, et les indices 💡 |
@@ -147,7 +149,22 @@ Le **playground** est une page web, livrée avec le cours, où vous écrivez et 
 
 En haut de la liste, deux **bacs à sable** vous laissent essayer ce que vous voulez, hors exercice.
 
-> La sauvegarde est faite **dans le navigateur**, pas dans les fichiers du cours : votre fork ne contient donc pas votre code d'exercice. Changer de navigateur ou de poste, ou effacer les données de navigation, vous fait repartir du code de départ.
+Quelques exercices n'ont **pas de test automatique** : on y rédige une réponse (du pseudo-code, un tableau de suivi) et, parfois, on dessine un diagramme de flux dans l'**éditeur de schémas** du playground. Choisissez une forme, cliquez dans la zone, double-cliquez pour écrire dedans, et reliez les formes avec l'outil flèche. Quand vous avez fini, **✓ J'ai terminé** enregistre votre réponse ; comparez-la ensuite avec la correction du support.
+
+> La sauvegarde est faite **dans le navigateur**, pas dans les fichiers du cours : votre fork ne contient donc pas votre code d'exercice. Changer de navigateur ou de poste, ou effacer les données de navigation, vous fait repartir du code de départ. **Travaillez les deux jours sur le même poste, avec le même navigateur.**
+
+### Le journal du soir
+
+Le playground tient un **journal** de votre travail : pour chaque exercice, ce que vous avez tenté (le code de chaque essai), le résultat des tests, les indices ouverts, vos réponses et vos schémas, le tout horodaté. S'y ajoute votre **auto-évaluation** : les listes « Je sais… » qui terminent chaque chapitre, à cocher dans le playground.
+
+**Chaque soir, avant de partir :**
+
+1. cliquez sur **📓 Journal** ;
+2. indiquez votre prénom et votre nom, et cochez ce que vous savez faire dans l'auto-évaluation ;
+3. cliquez sur **⬇ Télécharger mon journal** : un fichier `journal-prenom-nom-….json` est enregistré dans vos téléchargements ;
+4. **déposez ce fichier sur Moodle**, dans le devoir du jour.
+
+Le journal reprend tout depuis le début : celui du deuxième soir contient aussi le premier jour. Il porte une **signature** pour chaque étape et pour le fichier entier : toute modification après coup est détectée. Ne l'ouvrez donc pas pour le retoucher. Le télécharger est aussi une sauvegarde : gardez-le.
 
 ---
 
@@ -317,7 +334,8 @@ Les deux erreurs, dans l'ordre où le playground les signale :
 - [ ] lire une valeur du panneau Entrées avec `lire()`, et la changer pour essayer mon programme ;
 - [ ] lancer les tests et lire un ❌ ;
 - [ ] trouver la ligne d'une erreur et lire son explication ;
-- [ ] me servir des indices avant d'ouvrir une correction.
+- [ ] me servir des indices avant d'ouvrir une correction ;
+- [ ] télécharger mon journal chaque soir et le déposer sur Moodle.
 
 ---
 

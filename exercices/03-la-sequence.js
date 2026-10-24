@@ -1,6 +1,13 @@
 // Chapitre 03 — La séquence. Énoncés détaillés et corrigés : 03-La-sequence.md
 
-chapitre(3, 'La séquence');
+chapitre(3, 'La séquence', [
+  "expliquer ce qu'est une séquence, et pourquoi l'ordre des instructions compte",
+  "déclarer une variable avec `const` ou `let`, et choisir entre les deux",
+  "utiliser le quotient (`DIV`, `Math.floor(a / b)`) et le reste (`MOD`, `%`)",
+  "remplir un tableau de suivi pour exécuter un algorithme à la main",
+  "traduire `LIRE`, `ÉCRIRE` et `←` en JavaScript",
+  "assembler un texte à afficher avec `+`",
+]);
 
 exercice({
   id: '3.1',
@@ -39,6 +46,18 @@ exercice({
     'Assemblez la ligne morceau par morceau : quantite + " x " + article + " à " + …',
     'Chaque morceau de texte porte ses propres espaces : " x ", " à ", " € = ", " €".',
   ],
+});
+
+exercice({
+  id: '3.3',
+  titre: 'Exécuter à la main',
+  niveau: 2,
+  mode: 'reponse',
+  parties: ['texte'],
+  enonce: '<p>Remplissez le tableau de suivi de ce programme, pour <code>a = 5</code> et <code>b = 3</code>, puis dites ce qu\'il fait, quelles que soient les valeurs de départ :</p>' +
+    '<pre>LIRE a\nLIRE b\na ← a + b\nb ← a − b\na ← a − b\nÉCRIRE "a = ", a, ", b = ", b</pre>',
+  depart: 'Instruction      | a | b | Affichage\n-----------------|---|---|----------\nLIRE a           |   |   |\nLIRE b           |   |   |\na ← a + b        |   |   |\nb ← a − b        |   |   |\na ← a − b        |   |   |\nÉCRIRE …         |   |   |\n\nCe que fait le programme :\n',
+  tests: [],
 });
 
 exercice({

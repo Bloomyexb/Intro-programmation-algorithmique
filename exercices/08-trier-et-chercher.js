@@ -1,6 +1,13 @@
 // Chapitre 08 — Trier et chercher. Énoncés détaillés et corrigés : 08-Trier-et-chercher.md
 
-chapitre(8, 'Trier et chercher');
+chapitre(8, 'Trier et chercher', [
+  "écrire une recherche linéaire qui retourne une position, ou −1",
+  "expliquer pourquoi la dichotomie est si rapide, et à quelle condition elle marche",
+  "exécuter à la main une recherche dichotomique",
+  "décrire avec mes mots le tri par sélection, le tri à bulles et le tri par insertion",
+  "échanger deux cases d'un tableau",
+  "trier des nombres avec `sort((a, b) => a - b)`, et expliquer pourquoi `sort()` seul ne suffit pas",
+]);
 
 // Un tableau de 50 nombres au hasard, comparé au même tableau trié par JavaScript.
 const TRI_AU_HASARD = {

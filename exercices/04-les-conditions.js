@@ -1,6 +1,13 @@
 // Chapitre 04 — Les conditions. Énoncés détaillés et corrigés : 04-Les-conditions.md
 
-chapitre(4, 'Les conditions');
+chapitre(4, 'Les conditions', [
+  "écrire une comparaison, et savoir qu'elle produit un booléen",
+  "combiner des conditions avec ET (`&&`), OU (`||`) et NON (`!`), et lire une table de vérité",
+  "écrire un `if`, un `if … else` et une suite de `else if`, en plaçant les cas dans le bon ordre",
+  "dessiner une décision avec un losange et ses deux sorties",
+  "utiliser `===` et `!==`, jamais `=` dans une condition",
+  "choisir des valeurs de test : un cas par chemin, et chaque frontière",
+]);
 
 exercice({
   id: '4.1',

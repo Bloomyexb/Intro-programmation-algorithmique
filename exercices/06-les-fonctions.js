@@ -1,6 +1,14 @@
 // Chapitre 06 — Les fonctions. Énoncés détaillés et corrigés : 06-Les-fonctions.md
 
-chapitre(6, 'Les fonctions');
+chapitre(6, 'Les fonctions', [
+  "expliquer à quoi sert une fonction, avec mes mots",
+  "écrire une fonction avec des paramètres et un `return`",
+  "distinguer afficher (`console.log`) et retourner (`return`), et savoir quand utiliser l'un ou l'autre",
+  "appeler une fonction depuis une autre",
+  "expliquer pourquoi une variable déclarée dans une fonction n'existe pas en dehors",
+  "lire un champ (`value`, puis `Number()`), réagir à un clic (`addEventListener`) et afficher dans la page (`textContent`)",
+  "séparer le calcul de l'affichage",
+]);
 
 exercice({
   id: '6.1',

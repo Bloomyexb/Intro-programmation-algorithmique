@@ -1,6 +1,14 @@
 // Chapitre 05 — Les boucles. Énoncés détaillés et corrigés : 05-Les-boucles.md
 
-chapitre(5, 'Les boucles');
+chapitre(5, 'Les boucles', [
+  "choisir entre `while`, `for` et `do … while` selon la situation",
+  "écrire les trois parties d'un `for`",
+  "utiliser un compteur et un accumulateur, initialisés avant la boucle",
+  "faire le tableau de suivi d'une boucle sur quelques tours",
+  "vérifier qu'une boucle s'arrête, et repérer une boucle infinie",
+  "traiter une suite de valeurs terminée par une sentinelle",
+  "imbriquer deux boucles",
+]);
 
 const FIZZBUZZ_15 = ['1', '2', 'Fizz', '4', 'Buzz', 'Fizz', '7', '8', 'Fizz', 'Buzz', '11', 'Fizz', '13', '14', 'FizzBuzz'];
 

@@ -766,7 +766,7 @@
   }
 
   // Les textes « Je sais » reprennent ceux du support, `code` compris.
-  const enCode = (texte) => echapper(texte).replace(/`([^`]+)`/g, '<code>$1</code>');
+  const enCode = (texte) => echapper(texte).replace(/`([^`]+)`/g, '<code>$1</code>').replace(/\*([^*]+)\*/g, '<em>$1</em>');
 
   function statut(ex, etat) {
     if (etat.reussi) return ex.mode === 'reponse' ? 'rendu' : 'réussi';

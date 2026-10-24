@@ -1,7 +1,16 @@
 // Chapitre 10 — Mini-projet : le nombre mystère. Énoncés détaillés et corrigés :
 // 10-Mini-projet-le-nombre-mystere.md
 
-chapitre(10, 'Mini-projet : le nombre mystère');
+chapitre(10, 'Mini-projet : le nombre mystère', [
+  "j'ai fait le diagramme et le pseudo-code **avant** de coder",
+  "`comparer` et `tirerNombre` passent leurs tests",
+  "la v1 est jouable, et ses tests passent",
+  "la v2 gère l'historique, la nouvelle partie et le meilleur score",
+  "la logique du jeu (`comparer`) est séparée de l'affichage",
+  "l'état du jeu est déclaré en dehors des fonctions appelées au clic, et réinitialisé par une seule fonction",
+  "mes variables et mes fonctions ont des noms qui disent ce qu'elles contiennent ou font",
+  "mon code est indenté, et je n'ai pas recopié deux fois le même bloc",
+]);
 
 const STYLE_JEU = [
   '  <style>',
@@ -60,6 +69,17 @@ const HTML_JEU_V3 = ['<!doctype html>', '<html lang="fr">', '<head>', '  <meta c
 ]).join('\n');
 
 const COMPARER_FOURNI = 'function comparer(proposition, secret) {\n  if (proposition < secret) {\n    return "trop petit";\n  }\n  if (proposition > secret) {\n    return "trop grand";\n  }\n  return "gagné";\n}\n';
+
+exercice({
+  id: '10.0',
+  titre: 'Analyser le jeu',
+  niveau: 1,
+  mode: 'reponse',
+  parties: ['texte', 'schema'],
+  enonce: '<p>Avant de coder : quelles sont les entrées et les sorties du jeu ? Que doit-il retenir d\'une proposition à l\'autre ? <strong>Dessinez le diagramme de flux</strong> d\'une partie, comme si elle se jouait dans la console, puis écrivez son pseudo-code.</p>',
+  depart: '1. Entrées :\n   Sorties :\n\n2. Ce que le jeu doit retenir :\n\n3. Le diagramme : dans l\'éditeur de schémas, à droite.\n\n4. Le pseudo-code :\nALGORITHME NombreMystere\nVARIABLES\n  \nDÉBUT\n  \nFIN\n',
+  tests: [],
+});
 
 exercice({
   id: '10.1',
